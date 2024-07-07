@@ -1,8 +1,8 @@
 @echo off
 echo WARNING! This exploit is EXPERIMENTAL. Do not run it on important systems!
-echo ONLY TESTED ON WINDOWS 10!!!
-echo PRESS ANY KEY TO START
 echo ENSURE YOU ARE RUNNING AS ADMINISTRATOR OR IT WILL NOT WORK!
+echo Tested for Windows 10 Systems only
+echo Press any key to proceed
 echo If errors occur AFTER LEAVING the environment, restart the system.
 pause >nul
 
@@ -33,22 +33,22 @@ if exist "%systemdrive%\enviro.bat" (
 @echo reg add HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA /t REG_DWORD /d 1 /f > nul >> "%systemdrive%\enviro.bat"
 @echo reg add HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System /v VerboseStatus /t REG_DWORD /d 0 /f > nul >> "%systemdrive%\enviro.bat"
 @echo @echo off >> "%systemdrive%\enviro.bat"
+@echo title UnSafe Mode Enviroment v1.00.0 >> "%systemdrive%\enviro.bat"
+@echo color f0>> "%systemdrive%\enviro.bat"
 @echo :menu >> "%systemdrive%\enviro.bat"
 @echo cls >> "%systemdrive%\enviro.bat"
 @echo echo Select an interpreter >> "%systemdrive%\enviro.bat"
-@echo echo ===============-------------------- >> "%systemdrive%\enviro.bat"
+@echo echo ===============------------------- >> "%systemdrive%\enviro.bat"
 @echo echo Command Prompt                   1 >> "%systemdrive%\enviro.bat"
 @echo echo Powershell                       2 >> "%systemdrive%\enviro.bat"
 @echo echo Task Manager                     3 >> "%systemdrive%\enviro.bat"
-@echo echo Firefox           (Experimental) 4 >> "%systemdrive%\enviro.bat"
 @echo echo. >> "%systemdrive%\enviro.bat"
-@echo echo Exit                UnSafe Mode  9 >> "%systemdrive%\enviro.bat"
-@echo choice /c 12349 /n /m " " >> "%systemdrive%\enviro.bat"
-@echo if %%errorlevel%% equ 1  start /wait C:\Windows\System32\cmd.exe >> "%systemdrive%\enviro.bat"
-@echo if %%errorlevel%% equ 2  start /wait C:\Windows\System32\WindowsPowerShell\v1.0\Powershell.exe >> "%systemdrive%\enviro.bat"
-@echo if %%errorlevel%% equ 3  start /wait C:\Windows\System32\taskmgr.exe >> "%systemdrive%\enviro.bat"
-@echo if %%errorlevel%% equ 4  start /wait "C:\Program Files\Mozilla Firefox\firefox.exe" >> "%systemdrive%\enviro.bat"
-@echo if %%errorlevel%% equ 9  exit >> "%systemdrive%\enviro.bat"
+@echo echo Exit                UnSafe Mode  4 >> "%systemdrive%\enviro.bat"
+@echo choice /c 1234 /n /m " " >> "%systemdrive%\enviro.bat"
+@echo if %%errorlevel%% equ 1  start C:\Windows\System32\cmd.exe >> "%systemdrive%\enviro.bat"
+@echo if %%errorlevel%% equ 2  start C:\Windows\System32\WindowsPowerShell\v1.0\Powershell.exe >> "%systemdrive%\enviro.bat"
+@echo if %%errorlevel%% equ 3  start C:\Windows\System32\taskmgr.exe >> "%systemdrive%\enviro.bat"
+@echo if %%errorlevel%% equ 4  exit >> "%systemdrive%\enviro.bat"
 @echo goto menu >> "%systemdrive%\enviro.bat"
 :end
 shutdown -r -t 0
